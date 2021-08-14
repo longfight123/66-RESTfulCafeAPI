@@ -27,6 +27,7 @@ except:
     pass
 
 
+
 ##Cafe TABLE Configuration
 class Cafe(db.Model):
     """
@@ -84,6 +85,43 @@ class Cafe(db.Model):
         for column in self.__table__.columns:
             dict[column.name] = getattr(self, column.name)
         return dict
+
+try:
+    newcafe = Cafe(id=1, name='Science Gallary London',
+                   map_url='https://g.page/scigallerylon?share',
+                   img_url='https://atlondonbridge.com/wp-content/uploads/2019/02/Pano_9758_9761-Edit-190918_LTS_Science_Gallery-Medium-Crop-V2.jpg',
+                   location='London Bridge',
+                   has_sockets=1,
+                   has_toilets=1,
+                   has_wifi=1,
+                   can_take_calls=1,
+                   seat='50+',
+                   coffee_price='100'
+                   )
+    newcafe1 = Cafe(id=2, name='Social - Copeland Road',
+                   map_url='https://g.page/CopelandSocial?share',
+                   img_url='https://images.squarespace-cdn.com/content/v1/5734f3ff4d088e2c5b08fe13/1555848382269-9F13FE1WQDNUUDQOAOXF/ke17ZwdGBToddI8pDm48kAeyi0pcxjZfLZiASAF9yCBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzV8NE8s7067ZLWyi1jRvJklJnlBFEUyq1al9AqaQ7pI4DcRJq_Lf3JCtFMXgpPQyk/copeland-park-bar-peckham',
+                   location='Peckham',
+                   has_sockets=1,
+                   has_toilets=1,
+                   has_wifi=1,
+                   can_take_calls=0,
+                   seat='20-30',
+                   coffee_price='£2.75'
+                   )
+    newcafe3 = Cafe(id=3, name='One & All Cafe Peckham',
+                   map_url='https://g.page/one-all-cafe?share',
+                   img_url='https://lh3.googleusercontent.com/p/AF1QipOMzXpKAQNyUvrjTGHqCgWk8spwnzwP8Ml2aDKt=s0',
+                   location='Peckham',
+                   has_sockets=1,
+                   has_toilets=1,
+                   has_wifi=1,
+                   can_take_calls=0,
+                   seat='20-30',
+                   coffee_price='£2.75'
+                   )
+except:
+    pass
 
 @app.route("/")
 def home():
