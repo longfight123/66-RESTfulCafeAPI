@@ -122,7 +122,7 @@ try:
                    )
     db.session.add(newcafe)
     db.session.add(newcafe1)
-    db.session.add(newcafe2)
+    db.session.add(newcafe3)
     db.session.commit()
 except:
     pass
