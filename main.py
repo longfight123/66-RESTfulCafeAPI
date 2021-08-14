@@ -17,7 +17,7 @@ import os
 app = Flask(__name__)
 
 ##Connect to Database
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///cafes.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nhbuoufzzsoqhj:3d4f4f55a4780ca446a400545e4bdad12efaaf8b4b5b0466671110870c1d5d7c@ec2-3-218-149-60.compute-1.amazonaws.com:5432/d8k7fnu25o8v3k'#os.environ.get('DATABASE_URL', 'sqlite:///cafes.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -92,7 +92,7 @@ try:
                    img_url='https://atlondonbridge.com/wp-content/uploads/2019/02/Pano_9758_9761-Edit-190918_LTS_Science_Gallery-Medium-Crop-V2.jpg',
                    location='London Bridge',
                    has_sockets=1,
-                   has_toilets=1,
+                   has_toilet=1,
                    has_wifi=1,
                    can_take_calls=1,
                    seats='50+',
@@ -103,7 +103,7 @@ try:
                    img_url='https://images.squarespace-cdn.com/content/v1/5734f3ff4d088e2c5b08fe13/1555848382269-9F13FE1WQDNUUDQOAOXF/ke17ZwdGBToddI8pDm48kAeyi0pcxjZfLZiASAF9yCBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzV8NE8s7067ZLWyi1jRvJklJnlBFEUyq1al9AqaQ7pI4DcRJq_Lf3JCtFMXgpPQyk/copeland-park-bar-peckham',
                    location='Peckham',
                    has_sockets=1,
-                   has_toilets=1,
+                   has_toilet=1,
                    has_wifi=1,
                    can_take_calls=0,
                    seats='20-30',
@@ -114,7 +114,7 @@ try:
                    img_url='https://lh3.googleusercontent.com/p/AF1QipOMzXpKAQNyUvrjTGHqCgWk8spwnzwP8Ml2aDKt=s0',
                    location='Peckham',
                    has_sockets=1,
-                   has_toilets=1,
+                   has_toilet=1,
                    has_wifi=1,
                    can_take_calls=0,
                    seats='20-30',
@@ -125,6 +125,7 @@ try:
     db.session.add(newcafe3)
     db.session.commit()
 except:
+    print('no')
     pass
 
 @app.route("/")
