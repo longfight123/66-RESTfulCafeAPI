@@ -120,6 +120,10 @@ try:
                    seat='20-30',
                    coffee_price='£2.75'
                    )
+    db.session.add(newcafe)
+    db.session.add(newcafe1)
+    db.session.add(newcafe2)
+    db.session.commit()
 except:
     pass
 
