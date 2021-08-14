@@ -95,7 +95,7 @@ try:
                    has_toilets=1,
                    has_wifi=1,
                    can_take_calls=1,
-                   seat='50+',
+                   seats='50+',
                    coffee_price='100'
                    )
     newcafe1 = Cafe(id=2, name='Social - Copeland Road',
@@ -106,7 +106,7 @@ try:
                    has_toilets=1,
                    has_wifi=1,
                    can_take_calls=0,
-                   seat='20-30',
+                   seats='20-30',
                    coffee_price='£2.75'
                    )
     newcafe3 = Cafe(id=3, name='One & All Cafe Peckham',
@@ -117,7 +117,7 @@ try:
                    has_toilets=1,
                    has_wifi=1,
                    can_take_calls=0,
-                   seat='20-30',
+                   seats='20-30',
                    coffee_price='£2.75'
                    )
     db.session.add(newcafe)
