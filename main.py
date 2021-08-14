@@ -26,6 +26,7 @@ try:
 except:
     pass
 
+
 ##Cafe TABLE Configuration
 class Cafe(db.Model):
     """
