@@ -17,7 +17,7 @@ import os
 app = Flask(__name__)
 
 ##Connect to Database
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///cafes.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://nhbuoufzzsoqhj:3d4f4f55a4780ca446a400545e4bdad12efaaf8b4b5b0466671110870c1d5d7c@ec2-3-218-149-60.compute-1.amazonaws.com:5432/d8k7fnu25o8v3k'#os.environ.get('DATABASE_URL', 'sqlite:///cafes.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
