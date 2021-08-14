@@ -12,14 +12,19 @@ environment you are running this script in.
 from flask import Flask, jsonify, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import random
+import os
 
 app = Flask(__name__)
 
 ##Connect to Database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafes.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///cafes.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+try:
+    db.create_all()
+except:
+    pass
 
 ##Cafe TABLE Configuration
 class Cafe(db.Model):
@@ -220,7 +225,8 @@ def report_closed(id):
         a json message indicating the outcome of the DELETE request
     """
     cafe_id = id
-    top_secret_key = 'password'
+    #top_secret_key = 'password'
+    top_secret_key = os.environ.get('top_secret_key') # heroku config var
     api_key = request.args.get('api_key')
     if api_key != top_secret_key:
         return jsonify(error='Sorry, that\'s not allowed. Make sure you have the correct api_key.'), 403
